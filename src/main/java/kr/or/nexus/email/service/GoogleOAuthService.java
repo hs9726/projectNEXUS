@@ -50,7 +50,6 @@ public class GoogleOAuthService {
 		LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8081)
 				.setCallbackPath("/mail_client/callback").build();
 		
-		flow.getCredentialDataStore().delete("user"); // 토큰 에러가 발생한 경우 이 코드를 52번째 줄로 옮겨서 한번 실행
 		Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
 		if (credential.getRefreshToken() != null && credential.getExpiresInSeconds() != null
 				&& credential.getExpiresInSeconds() <= 60) {
@@ -63,7 +62,8 @@ public class GoogleOAuthService {
 				storedCredential.setExpirationTimeMilliseconds(credential.getExpirationTimeMilliseconds());
 				dataStore.set("user", storedCredential);
 			} else {
-				// If refresh failed, force re-authorization
+				// 토큰 에러가 발생한 경우 토큰 제거 후 새로 발급
+				flow.getCredentialDataStore().delete("user");
 				credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
 			}
 		} else {
