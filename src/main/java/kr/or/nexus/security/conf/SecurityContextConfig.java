@@ -69,10 +69,6 @@ public class SecurityContextConfig {
 					SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);
 					MemberManagementVO member = null;
 					
-					
-					
-					
-
 					HttpSession session = request.getSession();
 					SecurityContext securityContext = SecurityContextHolder.getContext();
 					if (securityContext != null) {
