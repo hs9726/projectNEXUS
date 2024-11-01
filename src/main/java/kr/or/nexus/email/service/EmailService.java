@@ -53,7 +53,7 @@ public class EmailService {
     public void sendEmail(String to, String groupId, String groupName) throws Exception {
         Gmail service = googleOAuthService.getGmailService();
         String userId = "me";
-        String emailAddress = "dlfkgjh7@gmail.com";
+        String emailAddress = "";
         String subject = "nexus 초대 메시지";
         
         String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
