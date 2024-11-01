@@ -47,7 +47,7 @@ public class GoogleOAuthService {
 				clientSecrets, SCOPES)
 						.setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
 						.setAccessType("offline").build();
-		LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8081)
+		LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort()
 				.setCallbackPath("/mail_client/callback").build();
 		
 		Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
