@@ -62,7 +62,6 @@ public class EmailService {
         }
         
         String fullUrl = baseUrl + "/group/"+groupId+"/insertGroupMember";
-//        String bodyText = "<a href='"+ fullUrl +"'>"+groupId+" 초대받기</a>";
         String bodyText = String.format(
         	    "<html>" +
         	    "<body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333;'>" +
