@@ -285,10 +285,7 @@ public class GcpService {
 		Page<Blob> blobs = storage.list(bucketName, BlobListOption.prefix(prefix), BlobListOption.currentDirectory());
 
 		return StreamSupport.stream(blobs.iterateAll().spliterator(), false)
-				.filter(blob -> !blob.getName().equals(prefix)).map(this::mapToGcsObjectInfo).filter(Objects::nonNull) // null이
-																														// 아닌
-																														// 객체만
-																														// 필터링
+				.filter(blob -> !blob.getName().equals(prefix)).map(this::mapToGcsObjectInfo).filter(Objects::nonNull) // null이 아닌 객체만 필터링
 				.collect(Collectors.toList());
 	}
 
