@@ -15,11 +15,6 @@ import com.google.cloud.storage.StorageOptions;
 @Configuration
 public class GcpConfig {
 	
-//	@Bean
-//    public Storage storage() {
-//        return StorageOptions.getDefaultInstance().getService();
-//    }
-	
 	@Value("${gcp.project.id}")
     private String projectId;
 
