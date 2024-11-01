@@ -137,9 +137,9 @@ public class EmailService {
     
     public void sendGroupRefusal(GroupRefusalVO groupRefusalVO) throws Exception {
         Gmail service = googleOAuthService.getGmailService();
-        String to = "keliong1015@gmail.com";
+        String to = "";
         String userId = "me";
-        String emailAddress = "dlfkgjh7@gmail.com";
+        String emailAddress = "";
         String subject = "nexus 그룹신청이 거절되었습니다.";
         
         String bodyText = groupRefusalVO.getRefusalContent();
