@@ -47,9 +47,9 @@ public class IssueFilesController {
 	    Map<String, List<GcsObjectInfo>> groupedFiles = allFiles.stream()
 	        .collect(Collectors.groupingBy(GcsObjectInfo::getIssueName));
 	    
+	    model.addAttribute("groupedIssueFiles", groupedFiles);
 	    model.addAttribute("projectId", projectId);
 	    model.addAttribute("groupId", groupId);
-	    model.addAttribute("groupedIssueFiles", groupedFiles);
 	    return "tiles2:issueFiles/filesUI";
 	}
 	
