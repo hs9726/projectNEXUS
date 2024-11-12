@@ -55,7 +55,7 @@ public class GoogleOAuthService {
 				&& credential.getExpiresInSeconds() <= 60) {
 			boolean refreshed = credential.refreshToken();
 			if (refreshed) {
-				// Save the refreshed credential
+				// refreshed credential 저장
 				DataStore<StoredCredential> dataStore = flow.getCredentialDataStore();
 				StoredCredential storedCredential = dataStore.get("user");
 				storedCredential.setAccessToken(credential.getAccessToken());
