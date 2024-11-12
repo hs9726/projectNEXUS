@@ -29,21 +29,6 @@ public class IssueFilesController {
 	@Autowired
 	private GcpService gcpService;
 	
-//	@GetMapping
-//	public String filesUI(@PathVariable String projectId, Model model) {
-//		List<IssueVO> issueList = service.retrieveIssueList(projectId);
-//		List<GcsObjectInfo> list = new ArrayList<GcsObjectInfo>();
-//		for(IssueVO issue : issueList) {
-//			List<GcsObjectInfo> gcpvo = gcpService.listFilesInFolder(issue.getIssueIdx());			
-//			for(GcsObjectInfo info : gcpvo) {
-//				list.add(info);
-//			}
-//		}
-//		
-//		model.addAttribute("issueFiles", list);
-//		return "tiles2:issueFiles/filesUI";
-//	}
-	
 	@GetMapping
 	public String filesUI(@PathVariable String projectId, @PathVariable String groupId, Model model) {
 		List<IssueVO> issueList = service.retrieveIssueList(projectId);
